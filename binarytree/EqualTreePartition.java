@@ -110,6 +110,8 @@ public class EqualTreePartition {
 		if(A.right!=null)
 			q.add(A.right);
 		System.out.println("totalSum "+totalSum);
+		//Without using this queue you will only find the value for root node, hence I have used queue to insert all the nodes
+		//and find values of subtree for each node.
 		while(!q.isEmpty())
 		{
 			TreeNode curr=q.poll();

@@ -1,5 +1,7 @@
 package in.cdac.binarytree;
 
+import java.util.Scanner;
+
 public class BalancedBinaryTree {
 	boolean isBalanced=true;
 	class TreeNode {
@@ -14,6 +16,8 @@ public class BalancedBinaryTree {
 	 }
 
 	public static void main(String[] args) {
+
+		
 		// TODO Auto-generated method stub
 
 	}
