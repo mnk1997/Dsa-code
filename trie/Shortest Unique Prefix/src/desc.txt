@@ -1,0 +1,10 @@
+Given a list of N words, find the shortest unique prefix to represent each word in the list.
+
+
+
+
+NOTE: Assume that no word is the prefix of another. In other words, the representation is always possible
+
+
+
+

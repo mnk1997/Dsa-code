@@ -1,0 +1,23 @@
+Given a string A and a dictionary of words B, determine if A can be segmented into a space-separated sequence of one or more dictionary words.
+
+Input Format:
+
+Input 1:
+    A = "myinterviewtrainer",
+    B = ["trainer", "my", "interview"]
+
+Output 1:
+    1
+
+Explanation 1:
+    Return 1 ( corresponding to true ) because "myinterviewtrainer" can be segmented as "my interview trainer".
+
+Input 2:
+    A = "a"
+    B = ["aaa"]
+
+Output 2:
+    0
+
+Explanation 2:
+    Return 0 ( corresponding to false ) because "a" cannot be segmented as "aaa".
