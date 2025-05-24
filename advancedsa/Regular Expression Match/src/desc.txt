@@ -1,0 +1,19 @@
+Implement wildcard pattern matching with support for ' ? ' and ' * ' for strings A and B.
+
+' ? ' : Matches any single character.
+' * ' : Matches any sequence of characters (including the empty sequence).
+
+
+
+The matching should cover the entire input string (not partial).
+
+
+ A = "aaa"
+ B = "a*"
+ Since '*' matches any sequence of characters. Last two 'a' in string A will be match by '*'.
+ So, the pattern matches we return 1.
+
+A = "acz"
+ B = "a?a"
+'?' matches any single character. First two character in string A will be match.
+ But the last character i.e 'z' != 'a'. Return 0.
