@@ -4,7 +4,8 @@ import java.util.Arrays;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        System.out.println(isMatch("bcacabcbba'","c*??c*?**c*?'"));
+        System.out.println(isMatch("cbcacacabac","c"));
+        ;
     }
     public static int isMatch(final String A, final String B) {
         int[][] dp=new int[A.length()+1][B.length()+1];
@@ -12,6 +13,7 @@ public class Main {
             Arrays.fill(row,-1);
         }
         boolean match= dpMatch(A,B,A.length(),B.length(),dp);
+        System.out.println("anser from tabular "+dpMatchUsingBottomTop(A,B));
         if(match)
             return 1;
         else return 0;
@@ -66,5 +68,46 @@ public class Main {
             return false;
         }
 
+    }
+
+
+    private static  boolean dpMatchUsingBottomTop(String a, String b) {
+       boolean[][] dp=new boolean[a.length()+1][b.length()+1];
+       dp[0][0]=true;
+       dp[1][0]=false;
+
+       for(int i=1;i<=b.length();i++)
+       {
+           if(b.charAt(i-1)=='*')
+               dp[0][i]= dp[0][i - 1];
+           else
+               dp[0][i]=false;
+       }
+
+      for(int row=1 ;row<=a.length();row++)
+       {
+           for(int col=1;col<=b.length();col++)
+           {
+               if(a.charAt(row-1)==b.charAt(col-1) || b.charAt(col-1)=='?')
+               {
+                   dp[row][col]=dp[row-1][col-1];
+               }
+               else if(b.charAt(col-1)=='*')
+               {
+                   //boolean result=dpMatch(a,b,i,j-1,dp) || dpMatch(a,b,i-1,j,dp) || dpMatch(a,b,i-1,j-1,dp);
+
+                   dp[row][col]=dp[row][col-1] && dp[(row-1)][col] && dp[(row-1)][col-1] && true;
+
+               }else {
+                   // System.out.println("char "+a.substring(0,i+1)+" B "+b.substring(0,j+1));
+                   dp[row][col]=false;
+
+               }
+           }
+
+       }
+
+
+            return dp[a.length()][b.length()];
     }
 }
